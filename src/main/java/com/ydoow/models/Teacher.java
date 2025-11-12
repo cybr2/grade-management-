@@ -1,11 +1,10 @@
-package com.ydoow.model;
-
-import com.ydoow.model.Section;
+package com.ydoow.models;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.ydoow.utilities.DateTimeUtil;
 
 public class Teacher {
     
@@ -19,8 +18,6 @@ public class Teacher {
     private LocalDateTime updatedAt;
 
     private List<Section> sections = new ArrayList<>();
-
-    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
 
     public Teacher(int id, String lastName, String firstName, String email, String subjectSpecialization, boolean active){
         this.id = id;
@@ -89,10 +86,6 @@ public class Teacher {
         this.active = active;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
@@ -123,8 +116,8 @@ public class Teacher {
                 ", subjectSpecialization='" + subjectSpecialization + '\'' +
                 ", sections='" + sections.size() + '\'' +
                 ", active=" + active +
-                ", createdAt='" + createdAt.format(formatter) + '\'' +
-                ", upDatedAt='" + updatedAt.format(formatter) + '\'' +
+                ", createdAt='" + DateTimeUtil.format(createdAt) + '\'' +
+                ", upDatedAt='" + DateTimeUtil.format(updatedAt) + '\'' +
                 '}';
     }
 

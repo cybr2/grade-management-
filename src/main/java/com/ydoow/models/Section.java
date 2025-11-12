@@ -1,7 +1,10 @@
-package com.ydoow.model;
+package com.ydoow.models;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ydoow.utilities.DateTimeUtil;
 
 public class Section {
     private int id;
@@ -13,8 +16,8 @@ public class Section {
     private LocalDateTime updatedAt;
 
     private Teacher teacher;
+    private List<Student> students = new ArrayList<>();
 
-    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
 
     public Section(int id, String name, String gradeLevel, String schoolYear,  boolean active){
         this.id = id;
@@ -26,31 +29,32 @@ public class Section {
         this.updatedAt = LocalDateTime.now();
     }
 
-    public int getId(int id){
+
+    public int getId(){
         return id;
     }
 
-    public String getName(String name){
+    public String getName(){
         return name;
     }
 
-    public String getGradeLevel(String gradeLevel){
+    public String getGradeLevel(){
         return gradeLevel;
     }
 
-    public String getScoolYear(String schoolYear){
+    public String getSchoolYear(){
         return schoolYear;
     }
 
-    public boolean isActive(boolean active){
+    public boolean isActive(){
         return active;
     }
 
-    public LocalDateTime getCreatedAt(LocalDateTime createdAt){
+    public LocalDateTime getCreatedAt(){
         return createdAt;
     }
 
-    public LocalDateTime getUpdatedAt(LocalDateTime updatedAt){
+    public LocalDateTime getUpdatedAt(){
         return updatedAt;
     }
 
@@ -66,7 +70,7 @@ public class Section {
         this.gradeLevel = gradeLevel;
     }
 
-    public void setScoolYear(String schoolYear){
+    public void setSchoolYear(String schoolYear){
         this.schoolYear = schoolYear;
     }
 
@@ -74,21 +78,34 @@ public class Section {
         this.active = active;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt){
-        this.createdAt = createdAt;
-    }
-
     public void setUpdatedAt(LocalDateTime upDatedAt){
         this.updatedAt  = upDatedAt;
     }
 
 
-    public Teacher getTeacher(Teacher teacher){
+    public Teacher getTeacher(){
         return teacher;
     }
 
     public void setTeacher(Teacher teacher){
         this.teacher = teacher;
+    }
+
+    public List<Student> getStudents(){
+        return students;
+    }
+
+    public void addStudent(Student student){
+        if(student != null && !students.contains(student)){
+            students.add(student);
+            student.setSection(this);
+        }
+    }
+
+    public void removeStudent(Student student){
+        if(student != null && students.remove(student)){
+            student.setSection(null);
+        }
     }
     
     @Override
@@ -99,9 +116,10 @@ public class Section {
             ", gradeLevel='" + gradeLevel + '\'' +
             ", schoolYear='" + schoolYear + '\'' +
             ", teacher=" + (teacher != null ? teacher.getFirstName()  + " " + teacher.getLastName(): "None") +
+            ", students=" + students.size() +
             ", active=" + active +
-            ", createdAt='" + createdAt.format(formatter) + '\'' +
-            ", updatedAt='" + updatedAt.format(formatter) + '\'' +
+            ", createdAt='" + DateTimeUtil.format(createdAt) + '\'' +
+            ", updatedAt='" + DateTimeUtil.format(updatedAt) + '\'' +
             '}';
     }
 }
