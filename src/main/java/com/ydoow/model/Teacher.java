@@ -1,7 +1,11 @@
 package com.ydoow.model;
 
+import com.ydoow.model.Section;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Teacher {
     
@@ -11,11 +15,14 @@ public class Teacher {
     private String email;
     private String subjectSpecialization;
     private boolean active;
-    // private List<Section> sections;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public Teacher(int id, String lastName, String firstName, String email, String subjectSpecialization, boolean active, LocalDateTime createdAt, LocalDateTime updatedAt){
+    private List<Section> sections = new ArrayList<>();
+
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
+
+    public Teacher(int id, String lastName, String firstName, String email, String subjectSpecialization, boolean active){
         this.id = id;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -90,7 +97,22 @@ public class Teacher {
         this.updatedAt = updatedAt;
     }
 
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
+    public List<Section> getSections(){
+        return sections;
+    }
+
+    public void addSection(Section section){
+        if(section != null && !sections.contains(section)){
+            sections.add(section);
+            section.setTeacher(this);
+        }
+    }
+
+    public void removeSection(Section section){
+        if(section != null && sections.remove(section)){
+            section.setTeacher(null);
+        }
+    }
 
     @Override
     public String toString(){
@@ -99,9 +121,10 @@ public class Teacher {
                 ", name='" + firstName + " " + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", subjectSpecialization='" + subjectSpecialization + '\'' +
+                ", sections='" + sections.size() + '\'' +
                 ", active=" + active +
                 ", createdAt='" + createdAt.format(formatter) + '\'' +
-                ", createdAt='" + updatedAt.format(formatter) + '\'' +
+                ", upDatedAt='" + updatedAt.format(formatter) + '\'' +
                 '}';
     }
 
