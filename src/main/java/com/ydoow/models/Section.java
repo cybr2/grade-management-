@@ -18,6 +18,15 @@ public class Section {
     private Teacher teacher;
     private List<Student> students = new ArrayList<>();
 
+    public Section(String name, String gradeLevel, String schoolYear,  boolean active){
+        this.name = name;
+        this.gradeLevel = gradeLevel;
+        this.schoolYear = schoolYear;
+        this.active = active;
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
+
 
     public Section(int id, String name, String gradeLevel, String schoolYear,  boolean active){
         this.id = id;

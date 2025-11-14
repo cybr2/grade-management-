@@ -19,6 +19,16 @@ public class Teacher {
 
     private List<Section> sections = new ArrayList<>();
 
+    public Teacher(String lastName, String firstName, String email, String subjectSpecialization, boolean active){
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.email = email;
+        this.subjectSpecialization = subjectSpecialization;
+        this.active = active;
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
+
     public Teacher(int id, String lastName, String firstName, String email, String subjectSpecialization, boolean active){
         this.id = id;
         this.lastName = lastName;

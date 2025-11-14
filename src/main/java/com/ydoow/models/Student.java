@@ -17,6 +17,18 @@ public class Student {
 
     private Section section;
 
+    public Student(String studentNumber, String lastName, String firstName, String middleName, String gender, String email, boolean active){
+        this.studentNumber = studentNumber;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.gender = gender;
+        this.email = email;
+        this.active = active;
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
+
     public Student(int id, String studentNumber, String lastName, String firstName, String middleName, String gender, String email, boolean active){
         this.id = id;
         this.studentNumber = studentNumber;
