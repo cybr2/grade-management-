@@ -1,7 +1,6 @@
 package com.ydoow;
 
-import java.time.LocalDateTime;
-
+import com.ydoow.models.GradeRecord;
 import com.ydoow.models.Section;
 import com.ydoow.models.Student;
 import com.ydoow.models.Teacher;
@@ -17,6 +16,9 @@ public class Main {
 
         Student std1 = new Student(1,"0001","bern","yd", "bet","male","yd@gmail.com",true);
         System.out.println(std1);
+
+        GradeRecord g1 = new GradeRecord(1,"firs quarter", "exam", 43,50,0.4,s1,std1);
+        System.out.println(g1);
 
         t1.addSection(s1);
         s1.addStudent(std1);
