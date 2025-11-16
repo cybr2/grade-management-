@@ -9,10 +9,10 @@ public interface TeacherRepository {
 
     Teacher save(Teacher teacher);
 
-    Optional<Teacher> findById(Long id);
+    Optional<Teacher> findById(Integer id);
 
     List<Teacher> findAll();
 
-    void delete(Long id);
+    boolean delete(Integer id);
     
 }

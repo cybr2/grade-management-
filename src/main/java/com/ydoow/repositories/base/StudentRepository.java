@@ -14,6 +14,6 @@ public interface StudentRepository {
 
     List<Student> findBySectionId(Long sectionId);
 
-    void delete(Long id);
+    boolean delete(Long id);
     
 }
