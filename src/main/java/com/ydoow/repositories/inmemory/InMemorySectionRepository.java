@@ -6,11 +6,11 @@ import com.ydoow.repositories.base.SectionRepository;
 import com.ydoow.utilities.IdGenerator;
 
 public class InMemorySectionRepository implements SectionRepository{
-    private final Map<Integer, Section> store = new HashMap();
+    private final Map<Integer, Section> store = new HashMap<>();
 
     @Override
     public Section save(Section section){
-        if(section.getId() != 0){
+        if(section.getId() == 0){
             section.setId(IdGenerator.nextId(Section.class));
         }
         store.put(section.getId(),section);
