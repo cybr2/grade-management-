@@ -8,11 +8,11 @@ public interface GradeRecordRepository {
     
     GradeRecord save(GradeRecord gradeRecord);
 
-    Optional<GradeRecord> findById(Long id);
+    Optional<GradeRecord> findById(Integer id);
 
     List<GradeRecord> findAll();
 
-    List<GradeRecord> findByStudentId(Long id);
+    List<GradeRecord> findByStudentId(Integer id);
 
-    boolean delete(Long id);
+    boolean delete(Integer id);
 }

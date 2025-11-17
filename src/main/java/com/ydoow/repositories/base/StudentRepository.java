@@ -8,12 +8,12 @@ public interface StudentRepository {
     
     Student save(Student student);
 
-    Optional<Student> findbyId(Long id);
+    Optional<Student> findbyId(Integer id);
 
     List<Student> findAll();
 
-    List<Student> findBySectionId(Long sectionId);
+    List<Student> findBySectionId(Integer sectionId);
 
-    boolean delete(Long id);
+    boolean delete(Integer id);
     
 }
