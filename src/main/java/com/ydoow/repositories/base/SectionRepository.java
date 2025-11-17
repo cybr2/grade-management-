@@ -8,10 +8,10 @@ public interface SectionRepository {
     
     Section save(Section section);
 
-    Optional<Section> findById(Long id);
+    Optional<Section> findById(Integer id);
 
     List<Section> findAll();
 
-    void delete(Long id);
+    boolean delete(Integer id);
 
 }

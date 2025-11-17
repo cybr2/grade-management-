@@ -14,5 +14,5 @@ public interface GradeRecordRepository {
 
     List<GradeRecord> findByStudentId(Long id);
 
-    void delete(Long id);
+    boolean delete(Long id);
 }

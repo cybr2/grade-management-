@@ -4,19 +4,18 @@ package com.ydoow.repositories.inmemory;
 import com.ydoow.repositories.base.TeacherRepository;
 
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
+import com.ydoow.utilities.IdGenerator;
 
 
 
 public class InMemoryTeacherRepository implements TeacherRepository {
 
     private final Map<Integer, Teacher> store = new HashMap<>();
-    private final AtomicInteger idGenerator = new AtomicInteger();
 
     @Override
     public Teacher save(Teacher teacher){
         if(teacher.getId() == 0){
-            teacher.setId(idGenerator.getAndIncrement());
+            teacher.setId(IdGenerator.nextId(Teacher.class));
         }
         store.put(teacher.getId(), teacher);
         return teacher;
