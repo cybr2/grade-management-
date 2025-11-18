@@ -12,6 +12,8 @@ public interface GradeRecordRepository {
 
     List<GradeRecord> findAll();
 
+    List<GradeRecord> findBySectionId(Integer id);
+
     List<GradeRecord> findByStudentId(Integer id);
 
     boolean delete(Integer id);

@@ -36,7 +36,7 @@ public class GradeRecord {
         this.score = score;
         this.maxScore = maxScore;
         this.weight = weight;
-        this.section = section;
+        this.section = section; 
         this.student = student;
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
@@ -120,6 +120,13 @@ public class GradeRecord {
 
     public void setStudent(Student student) {
         this.student = student;
+    }
+
+    public void updateGradeScore(double score,double maxScore, double weight){
+        this.score = score;
+        this.maxScore = maxScore;
+        this.weight = weight;
+        this.updatedAt = LocalDateTime.now();
     }
 
     @Override
