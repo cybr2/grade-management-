@@ -36,7 +36,7 @@ public class Teacher {
     
     // Getters 
 
-    public int getId(){
+    public Integer getId(){
         return id;
     }
 
@@ -64,30 +64,31 @@ public class Teacher {
         return updatedAt;
     }
 
-    // Setters 
-    public int setId(int id){
-        return this.id = id;
+    // Setters
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String setLastName(String lastName){
-        return this.lastName = lastName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String setFirstName(String firstName){
-        return this.firstName = firstName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String setEmail(String email){
-        return this.email = email;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String setSubjectSpecialization(String subjectSpecialization){
-        return this.subjectSpecialization = subjectSpecialization;
+    public void setSubjectSpecialization(String subjectSpecialization) {
+        this.subjectSpecialization = subjectSpecialization;
     }
 
-    public LocalDateTime setUpdatedAt(LocalDateTime updatedAt){
-        return this.updatedAt = updatedAt;
-    }
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+}
+
 
 
 
