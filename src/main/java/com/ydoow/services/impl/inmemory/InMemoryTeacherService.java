@@ -28,4 +28,26 @@ public class InMemoryTeacherService implements TeacherService {
         return teacherRepository.save(newTeacher);
             
     }
+
+    @Override
+    public Optional<Teacher> findById(Integer id){
+        return teacherRepository.findById(id);
+    }
+
+    @Override
+    public List<Teacher> findAll(){
+        return teacherRepository.findAll();
+    }
+
+    @Override
+    public Teacher update(Integer id, String newName){
+        Teacher existing = teacherRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Teacher not found: " + id));
+        existing.setLastName(newName);
+        return teacherRepository.save(existing);
+    }
+
+    @Override
+    public void delete(Integer id){
+        teacherRepository.delete(id);
+    }
 }

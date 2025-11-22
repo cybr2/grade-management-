@@ -10,13 +10,13 @@ public interface TeacherService {
 
     Teacher create(TeacherData teacher);
 
-    // Optional<Teacher> findById(Integer id);
+    Optional<Teacher> findById(Integer id);
 
-    // List<Teacher> findAll();
+    List<Teacher> findAll();
 
-    // Teacher update(Integer id,TeacherData updatedData);
+    Teacher update(Integer id,TeacherData updatedData);
 
-    // boolean delete(Integer id);
+    boolean delete(Integer id);
 
     boolean emailExists(String email);
 }

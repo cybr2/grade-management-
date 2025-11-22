@@ -1,20 +1,19 @@
-package com.ydoow.teacher.dto.internal;
+package com.ydoow.teacher.dto.request;
 
-public class TeacherData {
+public class TeacherCreateRequest {
 
     private final String lastName;
     private final String firstName;
     private final String email;
     private final String subjectSpecialization;
 
-    public TeacherData(String lastName, String firstName, String email, String subjectSpecialization){
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.email = email;
-        this.subjectSpecialization = subjectSpecialization;
+    public TeacherCreateRequest(String lastName,String firstName,String email,String subjectSpecialization){
+        this.lastName=lastName;
+        this.firstName=firstName;
+        this.email=email;
+        this.subjectSpecialization=subjectSpecialization;
     }
 
-    // Getters
     public String getLastName(){
         return lastName;
     }
@@ -30,5 +29,4 @@ public class TeacherData {
     public String getSubjectSpecialization(){
         return subjectSpecialization;
     }
-
 }
